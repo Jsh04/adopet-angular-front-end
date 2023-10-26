@@ -1,0 +1,13 @@
+@import '../../../styles.scss';
+
+.rodape{
+    background-color: var(--verde-primary);
+    padding: 1.5rem 0;
+    width: 100%;
+    p{
+        text-align: center;
+        color: white;
+        @include font-style(16px,normal,24px, 400)
+    }
+    z-index: 99;
+}

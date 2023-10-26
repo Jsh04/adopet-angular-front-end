@@ -1,9 +1,9 @@
-.cabecalho__img{
-  width: 150px;
-  height: 50px;
-}
 .cabecalho{
   display: flex;
-  column-gap: 1.5rem;
+  column-gap: 2rem;
   align-items: center;
+  .cabecalho__img{
+    width: 200px;
+    height: 50px;
+  }
 }
