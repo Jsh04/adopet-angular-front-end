@@ -1,0 +1,26 @@
+@import '../../../styles.scss';
+.cadastro-tutor__img-container{
+  img{
+    width: 200px;
+    height: 50px;
+  }
+}
+
+.cadastro-tutor{
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.cadastro-tutor__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+.cadastro-tutor__descricao-conteudo{
+  color: var(--azul-primary);
+  text-align: center;
+  @include font-style(18px, 26px, normal, 400)
+}
