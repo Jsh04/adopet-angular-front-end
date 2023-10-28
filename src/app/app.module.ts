@@ -8,8 +8,8 @@ import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
 import { HomeComponent } from './components/home/home.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
-import { FormsModule } from '@angular/forms';
-import { RotaBackGroundBodyDirective } from './directive/rota-back-ground-body.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoaderModule } from './components/loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -18,13 +18,14 @@ import { RotaBackGroundBodyDirective } from './directive/rota-back-ground-body.d
     RodapeComponent,
     HomeComponent,
     CadastroComponent,
-    RotaBackGroundBodyDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    LoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

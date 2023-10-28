@@ -8,8 +8,9 @@
 
 .cadastro-tutor{
   display: flex;
-  justify-content: center;
-  margin-top: 3rem;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .cadastro-tutor__container{
@@ -24,3 +25,93 @@
   text-align: center;
   @include font-style(18px, 26px, normal, 400)
 }
+
+.cadastro-tutor__formulario{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cadastro-tutor__formulario-campo{
+  padding: 1rem;
+  text-align: center;
+}
+
+.cadastro-tutor__formulario-label{
+  @include font-style(18px, 24px, normal, 600);
+}
+
+.cadastro-tutor__formulario-container{
+  margin-top: 1rem;
+  width: 100%; 
+}
+
+.cadastro-tutor__formulario-input{
+  @include style-input();
+  margin-bottom: 0.5rem;
+  input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    &::placeholder{
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #BCBCBC;
+    }
+  }
+}
+
+.cadastro-tutor__formulario-campo-senha{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cadastro-tutor__formulario-input-senha{
+  @include style-input();
+  width: 300px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    &::placeholder{
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #BCBCBC;
+    }
+  }
+  span{
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.cadastro-tutor__formulario-botao{
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+  button{
+    @include font-style(18px, 24px, normal, 700);
+    padding: 0.75rem 1rem;
+    color: white;
+    background-color: var(--rosa-primary);
+    border: none;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+}
+
+
+

@@ -1,5 +1,4 @@
 import { Component, ElementRef } from '@angular/core';
-import { RouteService } from './service/route.service';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({

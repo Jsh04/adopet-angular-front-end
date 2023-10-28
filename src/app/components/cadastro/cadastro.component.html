@@ -11,9 +11,64 @@ Então, antes de buscar seu melhor amigo, precisamos de alguns dados:
     </div>
   </article>
   <article class="cadastro-tutor__formulario">
-    <form (ngSubmit)="CadastrarTutor($event)" action="">
-
-
-    </form>
+    <div class="cadastro-tutor__formulario-container">
+      <form #f="ngForm" (ngSubmit)="CadastrarTutor(f)" action="">
+        <div class="cadastro-tutor__formulario-campo">
+          <label for="nome" class="cadastro-tutor__formulario-label ff-popins">
+            Nome
+          </label>
+          <div class="cadastro-tutor__formulario-input">
+            <input type="text" name="nome" id="nome" ngModel placeholder="Digite seu nome completo" required minlength="3">
+          </div>
+          <div *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched) || f.controls['nome']?.dirty">
+            <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
+            <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
+          </div>
+        </div>
+        <div class="cadastro-tutor__formulario-campo">
+          <label for="email" class="cadastro-tutor__formulario-label ff-popins">
+            Email
+          </label>
+          <div class="cadastro-tutor__formulario-input">
+            <input type="email" name="email" id="email" ngModel placeholder="Digite seu email" required>
+          </div>
+          <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
+            <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['required']">O campo email é obrigatório</span>
+          </div>
+        </div>
+        <div class="cadastro-tutor__formulario-campo-senha">
+          <label for="senha" class="cadastro-tutor__formulario-label ff-popins">
+            Senha
+          </label>
+          <div class="cadastro-tutor__formulario-input-senha">
+            <input *ngIf="!eParaMostrarSenha" type="password" name="Senha" id="senha" ngModel required placeholder="Crie uma senha">
+            <input *ngIf="eParaMostrarSenha" type="text" name="Senha" id="Senha" ngModel required placeholder="Crie um senha">
+            <span *ngIf="!eParaMostrarSenha" (click)="MostrarSenha()" class="cadastro-tutor__ver-senha"><i class="las la-eye-slash"></i></span>
+            <span *ngIf="eParaMostrarSenha" (click)="MostrarSenha()" class="cadastro-tutor__ver-senha"><i class="las la-eye"></i></span>
+          </div>
+          <div *ngIf="(f.controls['Senha']?.invalid && f.controls['Senha']?.touched) || f.controls['Senha']?.dirty">
+            <span class="mensagem-erro ff-popins" *ngIf="f.controls['Senha']?.errors?.['required']">O campo senha é obrigatório</span>
+          </div>
+        </div>
+        <div class="cadastro-tutor__formulario-campo-senha">
+          <label for="confirmaSenha" class="cadastro-tutor__formulario-label ff-popins">
+            Confirmar Senha
+          </label>
+          <div class="cadastro-tutor__formulario-input-senha">
+            <input *ngIf="!eParaMostrarSenhaConfimada" type="password" name="confirmaSenha" id="confirmaSenha" required ngModel placeholder="Repita a senha criada">
+            <input *ngIf="eParaMostrarSenhaConfimada" type="text" name="confirmaSenha" id="confirmaSenha" required ngModel placeholder="Repita a senha criada">
+            <span *ngIf="!eParaMostrarSenhaConfimada" (click)="MostrarSenhaConfirmar()" class="cadastro-tutor__ver-senha"><i class="las la-eye-slash"></i></span>
+            <span *ngIf="eParaMostrarSenhaConfimada" (click)="MostrarSenhaConfirmar()" class="cadastro-tutor__ver-senha"><i class="las la-eye"></i></span>
+          </div>
+          <div *ngIf="(f.controls['confirmaSenha']?.invalid && f.controls['confirmaSenha']?.touched) || f.controls['confirmaSenha']?.dirty">
+            <span class="mensagem-erro ff-popins" *ngIf="f.controls['confirmaSenha']?.errors?.['required']">O campo de confirma senha é obrigatório</span>
+          </div>
+        </div>
+        <div class="cadastro-tutor__formulario-botao">
+          <button class="cadastro-tutor__formulario-botao ff-popins" type="submit">Cadastrar!</button>
+        </div>
+      </form>
+    </div>
+    
   </article>
 </section>
