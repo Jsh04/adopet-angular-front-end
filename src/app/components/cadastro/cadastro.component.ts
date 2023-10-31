@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 import { Tutor } from 'src/app/models/tutor';
 import { TutorService } from 'src/app/service/tutor-service.service';
 
@@ -16,13 +17,33 @@ export class CadastroComponent implements OnInit {
 
   constructor(private tutorService: TutorService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  CadastrarTutor(form: NgForm){
-    console.log(form.controls);
+  CadastrarTutor(form: NgForm): void{
+    if (form.invalid) {
+      console.log(form.controls);
+      
+      return;
+    }
     
-    
+    const tutor: Tutor = new Tutor(
+    form.controls['nome'].value, 
+    form.controls['email'].value, 
+    form.controls['Senha'].value,
+    form.controls['confirmaSenha'].value);
+
+    this.tutorService.CadastrarTutor(tutor)
+    .subscribe(response => {
+      alert("Tutor cadastrado com sucesso");
+      this.limparFormulario(form);
+      this.router.navigateByUrl('login');
+    });
+  }
+  limparFormulario(form: NgForm):void {
+    form.controls['nome'].setValue("");
+    form.controls['email'].setValue("");
+    form.controls['Senha'].setValue("")
+    form.controls['confirmaSenha'].setValue("");
   }
 
   MostrarSenhaConfirmar(){

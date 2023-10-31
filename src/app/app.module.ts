@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoaderModule } from './components/loader/loader.module';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoaderModule } from './components/loader/loader.module';
     RodapeComponent,
     HomeComponent,
     CadastroComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

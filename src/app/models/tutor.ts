@@ -1,6 +1,5 @@
 export class Tutor {
-    Nome: string = '';
-    Email: string = '';
-    Senha: string = '';
-    SenhaConfirmada: string = '';
+
+    constructor(private Nome: string, private Email: string, private Senha: string, private SenhaConfirmada: string){
+    }
 }
