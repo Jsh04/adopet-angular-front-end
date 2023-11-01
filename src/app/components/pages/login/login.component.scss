@@ -1,0 +1,94 @@
+@import '../../../../styles.scss';
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+.form-login{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15rem;
+  }
+
+.login__formulario-campo{
+    padding: 1rem;
+    text-align: center;
+  }
+
+.login__formulario-label{
+    @include font-style(18px, 24px, normal, 600);
+}
+
+.form-login__container{
+    margin-top: 1rem;
+
+    width: 100%; 
+}
+
+.login__formulario-input{
+    @include style-input();
+    margin-bottom: 0.5rem;
+    input{
+      background-color: transparent;
+      outline: none;
+      border: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      &::placeholder{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        color: #BCBCBC;
+      }
+    }
+  }
+
+.login__formulario-campo-senha{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login__formulario-input-senha{
+    @include style-input();
+    width: 300px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    input{
+      background-color: transparent;
+      outline: none;
+      border: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      &::placeholder{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        color: #BCBCBC;
+      }
+    }
+    span{
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .login__formulario-botao{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+    button{
+      @include font-style(18px, 24px, normal, 700);
+      padding: 0.75rem 1rem;
+      color: white;
+      background-color: var(--rosa-primary);
+      border: none;
+      width: 200px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+}

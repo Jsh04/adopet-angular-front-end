@@ -1,0 +1,28 @@
+@import '../../../../styles.scss';
+
+.mensagem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.mensagem__img-container{
+    img{
+      width: 200px;
+      height: 50px;
+    }
+  }
+
+.mensagem__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+  }
+
+.mensagem__descricao-conteudo{
+    color: var(--azul-primary);
+  text-align: center;
+  @include font-style(18px, 26px, normal, 400)
+}

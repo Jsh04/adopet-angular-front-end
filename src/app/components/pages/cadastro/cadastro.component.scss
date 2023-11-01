@@ -1,10 +1,5 @@
-@import '../../../styles.scss';
-.cadastro-tutor__img-container{
-  img{
-    width: 200px;
-    height: 50px;
-  }
-}
+@import '../../../../styles.scss';
+
 
 .cadastro-tutor{
   display: flex;
@@ -13,18 +8,6 @@
   margin-top: 2rem;
 }
 
-.cadastro-tutor__container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 500px;
-}
-
-.cadastro-tutor__descricao-conteudo{
-  color: var(--azul-primary);
-  text-align: center;
-  @include font-style(18px, 26px, normal, 400)
-}
 
 .cadastro-tutor__formulario{
   width: 500px;
