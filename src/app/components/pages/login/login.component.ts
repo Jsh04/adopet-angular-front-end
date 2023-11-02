@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { catchError } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { AutenticacaoService } from 'src/app/service/autenticacao.service';
 
@@ -10,14 +11,13 @@ import { AutenticacaoService } from 'src/app/service/autenticacao.service';
 })
 export class LoginComponent implements OnInit {
 
+
   eParaMostrarSenha: boolean = false
   constructor(private autenticacaoService: AutenticacaoService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   LogarUsuario(form: NgForm){
-
     if (form.invalid) {
       alert("Preencha os campos corretamente")
       return;
@@ -25,10 +25,7 @@ export class LoginComponent implements OnInit {
     const usuario = new Usuario()
     usuario.Email = form.controls['email'].value;
     usuario.Senha = form.controls['Senha'].value;
-    this.autenticacaoService.autenticar(usuario.Email, usuario.Senha).subscribe(value => {
-      console.log(value.body);
-      
-    })
+    this.autenticacaoService.login(usuario.Email, usuario.Senha);
   }
 
   MostrarSenha(){

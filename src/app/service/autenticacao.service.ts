@@ -16,7 +16,7 @@ export class AutenticacaoService {
 
   constructor(private http: HttpClient, private usuarioService: UserService) { }
 
-  autenticar(email: string, senha: string): Observable<HttpResponse<AuthResponse>> {
+  login(email: string, senha: string): Observable<HttpResponse<AuthResponse>> {
     return this.http.post<AuthResponse>(
       `${this.apiUrl}/login`,
       { email, senha },

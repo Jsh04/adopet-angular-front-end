@@ -8,7 +8,7 @@
                       Email
                     </label>
                     <div class="login__formulario-input">
-                        <input type="email" name="email" id="email" ngModel placeholder="Digite seu nome completo" required>
+                        <input type="email" name="email" id="email" ngModel placeholder="Digite seu email" required>
                     </div>
                     <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty || (f.controls['email']?.invalid && f.submitted)">
                         <span class="mensagem-erro ff-popins" *ngIf="f.controls['email']?.errors?.['required']">O campo email é obrigatório</span>
