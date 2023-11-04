@@ -20,8 +20,8 @@ export class UserService {
 
   retornarRole(){
     const token = this.tokenService.retornarToken() || '';
-    
-    
+    const payload: any = jwtDecode(token)  
+    return payload.role;
   }
 
   estaLogado(){

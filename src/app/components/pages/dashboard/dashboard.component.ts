@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacaoService } from 'src/app/service/autenticacao.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+
+  readonly ABRIGO: string = 'Abrigo'
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  eAbrigo(): boolean{
+    if (this.userService.retornarRole() == this.ABRIGO) 
+      return true
+    else 
+      return false
   }
 
 }

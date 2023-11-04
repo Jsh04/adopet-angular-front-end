@@ -5,6 +5,7 @@ import { CadastroComponent } from './components/pages/cadastro/cadastro.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
+import { PetsDisponiveisComponent } from './components/pages/pets-disponiveis/pets-disponiveis.component';
 
 const routes: Routes = [
   {
@@ -16,13 +17,16 @@ const routes: Routes = [
     component: CadastroComponent
   },
   {
+    path: 'pets',
+    component: PetsDisponiveisComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
-    
   }
 ];
 

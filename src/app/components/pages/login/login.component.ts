@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { catchError } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { AutenticacaoService } from 'src/app/service/autenticacao.service';
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
 
   eParaMostrarSenha: boolean = false
-  constructor(private autenticacaoService: AutenticacaoService) { }
+  constructor(private autenticacaoService: AutenticacaoService, private router: Router) { }
 
   ngOnInit(): void {}
 
@@ -25,7 +26,12 @@ export class LoginComponent implements OnInit {
     const usuario = new Usuario()
     usuario.Email = form.controls['email'].value;
     usuario.Senha = form.controls['Senha'].value;
-    this.autenticacaoService.login(usuario.Email, usuario.Senha);
+    this.autenticacaoService.login(usuario.Email, usuario.Senha).subscribe(
+      value => {
+        this.router.navigate(['/dashboard']);
+      }
+    );
+   
   }
 
   MostrarSenha(){
