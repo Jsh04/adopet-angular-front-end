@@ -1,1 +1,13 @@
-<p>card-pet works!</p>
+<article class="card-pet">
+    <div class="card-pet__img">
+        <img [src]="pet.imagem" alt="">        
+    </div>
+    <div class="card-pet__info">
+        <p class="card-pet__nome ff-popins">{{pet.nome}}</p>
+        <p class="ff-popins">{{pet.idade}}</p>
+        <p class="ff-popins">{{pet.descricao}}</p>
+
+        <p class="ff-popins card-pet__estado">{{pet.abrigo.endereco.estado}}</p>
+        <p class="ff-popins card-pet__falar-responsavel"><img src="../../../../assets/ícone mensagem.png" alt="">Falar com responsável</p>
+    </div>
+</article>

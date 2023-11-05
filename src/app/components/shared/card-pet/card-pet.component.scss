@@ -1,0 +1,29 @@
+@import '../../../../styles.scss';
+
+.card-pet{
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    padding: 1rem;
+    background-color: #F6F6F6;
+}
+p{
+    margin: 0.5rem;
+}
+
+.card-pet__estado{
+    margin-top: 1.5rem;
+}
+
+.card-pet__falar-responsavel{
+    margin-top: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    column-gap: 0.5rem;
+}
+
+.card-pet__nome{
+    color: var(--azul-primary);
+    @include font-style(16px, 20px, normal, 600);
+    margin-bottom: 1rem;
+}

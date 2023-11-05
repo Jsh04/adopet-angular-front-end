@@ -16,6 +16,7 @@ import { PetsDisponiveisComponent } from './components/pages/pets-disponiveis/pe
 import { CardPetComponent } from './components/shared/card-pet/card-pet.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
+import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cadastro-abrigo.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AuthGuard } from './guard/auth.guard';
     PetsDisponiveisComponent,
     CardPetComponent,
     DashboardComponent,
+    CadastroAbrigoComponent,
   ],
   imports: [
     BrowserModule,

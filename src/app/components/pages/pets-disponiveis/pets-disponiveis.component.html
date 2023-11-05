@@ -1,9 +1,11 @@
 <section class="pets">
     <div class="pets__mensagem">
-        <p class="pets__mensagem-conteudo">
+        <p class="pets__mensagem-conteudo ff-popins">
             Olá! Veja os amigos disponíveis para adoção!
         </p>
     </div>
-    <card-pet *ngFor="let pet in ListaPetsDisponiveis">
-    </card-pet>
+    <div class="pets__cards-container">
+        <card-pet *ngFor="let pet of ListaPetsDisponiveis" [pet]="pet"></card-pet>
+    </div>
+   
 </section>

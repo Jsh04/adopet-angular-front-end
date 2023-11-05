@@ -6,6 +6,7 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
 import { PetsDisponiveisComponent } from './components/pages/pets-disponiveis/pets-disponiveis.component';
+import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cadastro-abrigo.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,16 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+  },
+  {
+    path: 'abrigo',
+    children: [
+      {
+        path: 'cadastro',
+        component: CadastroAbrigoComponent
+      }
+    ],
+    
   }
 ];
 
