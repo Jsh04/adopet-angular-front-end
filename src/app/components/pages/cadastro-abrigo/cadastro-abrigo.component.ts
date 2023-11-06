@@ -1,4 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+
+interface CepResponse{
+  cep: string, 
+  logradouro: string,
+  bairro: string,
+  localidade: string,
+  uf: string,
+}
 
 @Component({
   selector: 'app-cadastro-abrigo',
@@ -7,9 +18,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroAbrigoComponent implements OnInit {
 
-  constructor() { }
+  readonly API_VIA_CEP: string = 'https://viacep.com.br/ws/'
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  CadastrarAbrigo(form: NgForm){
+
+  }
+
+  PreencherFormulario(dadosCep: CepResponse, form: NgForm){
+    form.controls['logradouro'].setValue(dadosCep.logradouro)
+    form.controls['bairro'].setValue(dadosCep.bairro)
+    form.controls['cidade'].setValue(dadosCep.localidade)
+    form.controls['estado'].setValue(dadosCep.uf)
+  }
+
+  BuscarCEP(form: NgForm): void{
+    const cep: string = form.controls['cep'].value
+    const response = this.FazerRequisicaoViaCep(cep)
+    response.subscribe(value => {
+      this.PreencherFormulario(value, form);
+    })
+  }
+  
+  FazerRequisicaoViaCep(cep: string) {
+    const cepFormatado: string = cep.replace("-", "");
+    return this.http.get<CepResponse>(this.API_VIA_CEP + `${cepFormatado}/json`)
   }
 
 }

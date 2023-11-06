@@ -1,1 +1,68 @@
-<p>cadastro-abrigo works!</p>
+<section class="cadastro-abrigo">
+    <mensagem-component [texto]="'Quer fazer parte disso? Só vem com a gente!'"></mensagem-component>
+    <article class="cadastro-abrigo__form">
+        <div class="cadastro-abrigo__formulario-container">
+            <form #f="ngForm" action="" (ngSubmit)="CadastrarAbrigo(f)">
+                <div class="cadastro-abrigo__formulario-campo">
+                    <label for="nome" class="cadastro-abrigo__formulario-label ff-popins">
+                        Nome
+                    </label>
+                    <div class="cadastro-abrigo__formulario-input">
+                        <input type="text" name="nome" id="nome" ngModel placeholder="Digite o nome completo do abrigo" required minlength="3">
+                    </div>
+                    <div *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched) || f.controls['nome']?.dirty || (f.controls['nome']?.invalid && f.submitted)">
+                        <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
+                        <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
+                    </div>
+                </div>
+                <div class="cadastro-abrigo__formulario-campo">
+                    <label for="cep" class="cadastro-abrigo__formulario-label ff-popins">
+                        CEP
+                    </label>
+                    <div class="cadastro-abrigo__formulario-input">
+                        <input (blur)="BuscarCEP(f)" type="text" name="cep" id="cep" ngModel placeholder="XXXXX-XXX" pattern="\d{5}-\d{3}" required minlength="3">
+                    </div>
+                    <div *ngIf="(f.controls['cep']?.invalid && f.controls['cep']?.touched) || (f.controls['cep']?.invalid && f.submitted)">
+                        <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
+                        <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
+                    </div>
+                </div>
+                <div class="cadastro-abrigo__formulario-campo">
+                    <label for="logradouro" class="cadastro-abrigo__formulario-label ff-popins">
+                        Logradouro
+                    </label>
+                    <div class="cadastro-abrigo__formulario-input">
+                        <input disabled type="text" name="logradouro" id="logradouro" ngModel required>
+                    </div>
+                </div>
+                <div class="cadastro-abrigo__formulario-campo">
+                    <label for="bairro" class="cadastro-abrigo__formulario-label ff-popins">
+                        Bairro
+                    </label>
+                    <div class="cadastro-abrigo__formulario-input">
+                        <input disabled type="text" name="bairro" id="bairro" ngModel required>
+                    </div>
+                </div>
+                <div class="cadastro-abrigo__formulario-campo">
+                    <label for="cidade" class="cadastro-abrigo__formulario-label ff-popins">
+                        Cidade
+                    </label>
+                    <div class="cadastro-abrigo__formulario-input">
+                        <input disabled type="text" name="cidade" id="cidade" ngModel  required>
+                    </div>
+                </div>
+                <div class="cadastro-abrigo__formulario-campo">
+                    <label for="estado" class="cadastro-abrigo__formulario-label ff-popins">
+                        Estado
+                    </label>
+                    <div class="cadastro-abrigo__formulario-input">
+                        <input disabled type="text" name="estado" id="estado" ngModel required>
+                    </div>
+                </div>
+                <div class="cadastro-abrigo__formulario-botao">
+                    <button class="cadastro-abrigo__formulario-botao ff-popins" type="submit">Cadastrar!</button>
+                </div>
+            </form>
+        </div>
+    </article>
+</section>

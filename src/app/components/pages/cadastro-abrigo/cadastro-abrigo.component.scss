@@ -1,0 +1,66 @@
+@import '../../../../styles.scss';
+
+.cadastro-abrigo{
+    display: flex;
+    margin-top: 4rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cadastro-abrigo__form{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+
+.cadastro-abrigo__formulario-input{
+    @include style-input();
+    margin-bottom: 0.5rem;
+    input{
+      background-color: transparent;
+      outline: none;
+      border: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      &::placeholder{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        color: #BCBCBC;
+      }
+    }
+  }
+
+
+.cadastro-abrigo__formulario-campo{
+    padding: 1rem;
+    text-align: center;
+}
+
+.cadastro-abrigo__formulario-container{
+    margin-top: 1rem;
+    width: 100%; 
+  }
+
+.cadastro-abrigo__formulario-label{
+    @include font-style(18px, 24px, normal, 600);
+  }
+
+.cadastro-abrigo__formulario-botao{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem 0;
+    button{
+      @include font-style(18px, 24px, normal, 700);
+      padding: 0.75rem 1rem;
+      color: white;
+      background-color: var(--rosa-primary);
+      border: none;
+      width: 200px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
