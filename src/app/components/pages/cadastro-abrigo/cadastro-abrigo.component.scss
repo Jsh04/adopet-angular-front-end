@@ -64,3 +64,34 @@
       cursor: pointer;
     }
   }
+
+.cadastro-abrigo__formulario-campo-senha{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cadastro-abrigo__formulario-input-senha{
+    @include style-input();
+    width: 300px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    input{
+      background-color: transparent;
+      outline: none;
+      border: none;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      &::placeholder{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        color: #BCBCBC;
+      }
+    }
+    span{
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+  

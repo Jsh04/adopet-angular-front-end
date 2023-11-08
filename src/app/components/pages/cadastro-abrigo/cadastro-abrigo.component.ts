@@ -19,6 +19,8 @@ interface CepResponse{
 export class CadastroAbrigoComponent implements OnInit {
 
   readonly API_VIA_CEP: string = 'https://viacep.com.br/ws/'
+  eParaMostrarSenha: boolean = false
+  eParaMostrarSenhaConfimada: boolean = false
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +29,20 @@ export class CadastroAbrigoComponent implements OnInit {
 
   CadastrarAbrigo(form: NgForm){
 
+  }
+
+  MostrarSenha(){
+    if (this.eParaMostrarSenha) 
+      this.eParaMostrarSenha = false 
+    else 
+      this.eParaMostrarSenha = true
+  }
+
+  MostrarSenhaConfirmar(){
+    if (this.eParaMostrarSenhaConfimada) 
+      this.eParaMostrarSenhaConfimada = false 
+    else 
+      this.eParaMostrarSenhaConfimada = true
   }
 
   PreencherFormulario(dadosCep: CepResponse, form: NgForm){
