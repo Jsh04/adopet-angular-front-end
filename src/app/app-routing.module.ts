@@ -7,6 +7,8 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { AuthGuard } from './guard/auth.guard';
 import { PetsDisponiveisComponent } from './components/pages/pets-disponiveis/pets-disponiveis.component';
 import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cadastro-abrigo.component';
+import { CadastroPetComponent } from './components/pages/cadastro-pet/cadastro-pet.component';
+import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
 
 const routes: Routes = [
   {
@@ -37,7 +39,16 @@ const routes: Routes = [
         component: CadastroAbrigoComponent
       }
     ],
-    
+  },
+  {
+    path: 'pet',
+    component: TabelaPetsComponent,
+    children: [
+      {
+        path: 'cadastro',
+        component: CadastroPetComponent
+      }
+    ]
   }
 ];
 

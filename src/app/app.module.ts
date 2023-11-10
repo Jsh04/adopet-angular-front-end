@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,9 @@ import { CardPetComponent } from './components/shared/card-pet/card-pet.componen
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
 import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cadastro-abrigo.component';
+import { CadastroPetComponent } from './components/pages/cadastro-pet/cadastro-pet.component';
+import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
+import { AutenticacaoInterceptor } from './intercerptors/autenticacao.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cada
     CardPetComponent,
     DashboardComponent,
     CadastroAbrigoComponent,
+    CadastroPetComponent,
+    TabelaPetsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,11 @@ import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cada
     LoaderModule,
     
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AutenticacaoInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
