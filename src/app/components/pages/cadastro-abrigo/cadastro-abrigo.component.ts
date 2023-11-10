@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Abrigo } from 'src/app/models/abrigo';
+import { AbrigoService } from 'src/app/service/abrigo/abrigo.service';
 
 
 interface CepResponse{
@@ -22,13 +25,29 @@ export class CadastroAbrigoComponent implements OnInit {
   eParaMostrarSenha: boolean = false
   eParaMostrarSenhaConfimada: boolean = false
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private abrigoService: AbrigoService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   CadastrarAbrigo(form: NgForm){
-
+    if (form.invalid) {
+      alert("Preencha os dados corretamente")
+      return
+    }
+    const abrigo: Abrigo = new Abrigo();
+    abrigo.name = form.controls['nome'].value;
+    abrigo.email = form.controls['email'].value;
+    abrigo.senha = form.controls['Senha'].value;
+    abrigo.endereco.cep = form.controls['cep'].value;
+    abrigo.endereco.bairro = form.controls['bairro'].value;
+    abrigo.endereco.cidade = form.controls['cidade'].value;
+    abrigo.endereco.estado = form.controls['estado'].value;
+    abrigo.endereco.logradouro = form.controls['logradouro'].value;
+    this.abrigoService.CadastrarAbrigo(abrigo).subscribe(value => {
+      alert("Abrigo Cadastrado com sucesso")
+      this.router.navigateByUrl('/login')
+    })
   }
 
   MostrarSenha(){

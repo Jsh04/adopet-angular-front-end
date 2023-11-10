@@ -23,7 +23,6 @@ export class CadastroComponent implements OnInit {
   CadastrarTutor(form: NgForm): void{
     if (form.invalid) {
       console.log(form.controls);
-      
       return;
     }
     
