@@ -11,7 +11,7 @@ export class PetService {
 
   constructor(private http: HttpClient) { }
 
-  RetornarListaPets(abrigoId: number){
-    this.http.get<Pet[]>(this.API_URL + '/pet')
+  RetornarListaPets(abrigoId: string, take: number, skip: number){
+    return this.http.get<Pet[]>(this.API_URL + `/pet/pets-disponiveis/${abrigoId}?skip=${skip}&take=${take}`)
   }
 }

@@ -3,9 +3,9 @@
    <article class="dashboard__menu">
     <mensagem-component texto="Bem-vindo a AdoPet, o que você gostaria de fazer agora?"></mensagem-component>
         <ul class="dashboard__menu-lista">
-            <li *ngIf="!eAbrigo()" routerLink="/pets" class="dashboard__menu-item ff-popins">Fazer Adoção</li>
+            <li *ngIf="!eAbrigo()" routerLink="/pets-disponiveis" class="dashboard__menu-item ff-popins">Fazer Adoção</li>
             <li *ngIf="eAbrigo()" class="dashboard__menu-item ff-popins">Abrigos Cadastrados</li>
-            <li *ngIf="eAbrigo()" class="dashboard__menu-item ff-popins">Pets Cadastrados</li>
+            <li *ngIf="eAbrigo()" routerLink="/pets" class="dashboard__menu-item ff-popins">Pets Cadastrados</li>
             <li *ngIf="eAbrigo()" class="dashboard__menu-item ff-popins">Adoções Realizadas</li>
         </ul>
    </article> 

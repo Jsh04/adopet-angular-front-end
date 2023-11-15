@@ -1,5 +1,37 @@
 <section class="pet-tabela">
     <article class="pet-tabela__container">
-        
+        <div class="pet-tabela__titulo">
+            <h3 class="pet-tabela__titulo-conteudo ff-popins">Veja a lista de pets cadastrados!</h3>
+        </div>
+        <div *ngIf="ListaPetDisponiveis.length == 0">
+            <p class="text-center">Não há dados para serem exibidos</p>
+        </div>
+        <div *ngIf="ListaPetDisponiveis.length != 0" class="pet-tabela__table">
+            <table id="tabela__pet" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Descricao</th>
+                        <th>Adotado</th>
+                        <th>Idade</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pet of ListaPetDisponiveis">
+                        <td>{{pet.id}}</td>
+                        <td>{{pet.nome}}</td>
+                        <td>{{pet.descricao}}</td>
+                        <td>{{RetornarStringAdotado(pet.adotado)}}</td>
+                        <td>{{pet.idade}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </article>
 </section>

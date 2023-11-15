@@ -8,10 +8,22 @@ import { jwtDecode }  from 'jwt-decode';
   providedIn: 'root'
 })
 export class UserService {
+  
   constructor(private tokenService: TokenService) {}
 
   salvarToken(token: string){
     this.tokenService.salvarToken(token);
+  }
+
+  RetornarIdUsuario() {
+    const payload: any = this.RetornarPayload()
+    return payload.id;
+  }
+
+  private RetornarPayload(){
+    const token = this.tokenService.retornarToken() || '';
+    const payload: any = jwtDecode(token)  
+    return payload;
   }
 
   logout(){
@@ -19,8 +31,7 @@ export class UserService {
   }
 
   retornarRole(){
-    const token = this.tokenService.retornarToken() || '';
-    const payload: any = jwtDecode(token)  
+    const payload: any =  this.RetornarPayload();
     return payload.role;
   }
 

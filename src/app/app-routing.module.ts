@@ -20,7 +20,7 @@ const routes: Routes = [
     component: CadastroComponent
   },
   {
-    path: 'pets',
+    path: 'pets-disponiveis',
     component: PetsDisponiveisComponent
   },
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'pet',
+    path: 'pets',
     component: TabelaPetsComponent,
     children: [
       {

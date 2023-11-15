@@ -1,0 +1,23 @@
+@import '../../../../styles.scss';
+
+.pet-tabela{
+    display: flex;
+    justify-content: center;
+}
+
+.pet-tabela__container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    width: 70%;
+}
+
+.pet-tabela__titulo-conteudo{
+    @include font-style(24px, 24px, normal, 600);
+    color: var(--azul-primary);
+    text-align: center;
+}
+.pet-tabela__table{
+    margin-top: 3rem;
+}
+
