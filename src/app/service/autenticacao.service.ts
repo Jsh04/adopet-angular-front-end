@@ -24,7 +24,6 @@ export class AutenticacaoService {
         tap((response) => {
           const authToken = response.body?.token || '';
           this.usuarioService.salvarToken(authToken);
-          alert("Usuario logado com sucesso")
         })
       );
   }

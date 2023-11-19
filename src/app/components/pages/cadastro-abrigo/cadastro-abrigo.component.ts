@@ -2,17 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CepResponse } from 'src/app/interfaces/CepResponse';
 import { Abrigo } from 'src/app/models/abrigo';
 import { AbrigoService } from 'src/app/service/abrigo/abrigo.service';
+import { CepService } from 'src/app/service/cep.service';
 
-
-interface CepResponse{
-  cep: string, 
-  logradouro: string,
-  bairro: string,
-  localidade: string,
-  uf: string,
-}
 
 @Component({
   selector: 'app-cadastro-abrigo',
@@ -20,12 +14,13 @@ interface CepResponse{
   styleUrls: ['./cadastro-abrigo.component.scss']
 })
 export class CadastroAbrigoComponent implements OnInit {
-
-  readonly API_VIA_CEP: string = 'https://viacep.com.br/ws/'
   eParaMostrarSenha: boolean = false
   eParaMostrarSenhaConfimada: boolean = false
 
-  constructor(private http: HttpClient, private abrigoService: AbrigoService, private router: Router) { }
+  constructor(private http: HttpClient, 
+    private abrigoService: AbrigoService, 
+    private router: Router,
+    private cepService: CepService) { }
 
   ngOnInit(): void {
   }
@@ -73,15 +68,10 @@ export class CadastroAbrigoComponent implements OnInit {
 
   BuscarCEP(form: NgForm): void{
     const cep: string = form.controls['cep'].value
-    const response = this.FazerRequisicaoViaCep(cep)
+    const response = this.cepService.FazerRequisicaoViaCep(cep)
     response.subscribe(value => {
       this.PreencherFormulario(value, form);
     })
   }
   
-  FazerRequisicaoViaCep(cep: string) {
-    const cepFormatado: string = cep.replace("-", "");
-    return this.http.get<CepResponse>(this.API_VIA_CEP + `${cepFormatado}/json`)
-  }
-
 }

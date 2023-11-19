@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Route, Router } from '@angular/router';
-import { catchError } from 'rxjs';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { AutenticacaoService } from 'src/app/service/autenticacao.service';
 
@@ -14,11 +13,13 @@ export class LoginComponent implements OnInit {
 
 
   eParaMostrarSenha: boolean = false
+  loading: boolean = false
   constructor(private autenticacaoService: AutenticacaoService, private router: Router) { }
 
   ngOnInit(): void {}
 
   LogarUsuario(form: NgForm){
+    this.loading = true
     if (form.invalid) {
       alert("Preencha os campos corretamente")
       return;
@@ -28,6 +29,8 @@ export class LoginComponent implements OnInit {
     usuario.Senha = form.controls['Senha'].value;
     this.autenticacaoService.login(usuario.Email, usuario.Senha).subscribe(
       value => {
+        this.loading = false
+        alert("Usuario logado com sucesso")
         this.router.navigate(['/dashboard']);
       }
     );

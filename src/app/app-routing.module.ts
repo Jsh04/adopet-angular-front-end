@@ -42,11 +42,14 @@ const routes: Routes = [
   },
   {
     path: 'pets',
-    component: TabelaPetsComponent,
     children: [
       {
         path: 'cadastro',
         component: CadastroPetComponent
+      },
+      {
+        path: '',
+        component: TabelaPetsComponent
       }
     ]
   }

@@ -12,8 +12,6 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class TabelaPetsComponent implements OnInit {
 
-
-
   ListaPetDisponiveis: Pet[] = []
 
   constructor(
@@ -33,9 +31,18 @@ export class TabelaPetsComponent implements OnInit {
       this.ListaPetDisponiveis = value
     });
   }
+
+  RedirecionarParaCadastro() {
+    this.router.navigate(['/pets/cadastro'])
+  }
   RetornarStringAdotado(adotado: boolean): string {
     if (adotado) return "Sim"
     else return "Não"
   }
+  EditarPet(idPet: number){
+    
+  }
+
+  ExcluirPet(idPet: number){}
 
 }

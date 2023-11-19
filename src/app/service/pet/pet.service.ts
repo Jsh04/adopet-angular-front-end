@@ -14,4 +14,8 @@ export class PetService {
   RetornarListaPets(abrigoId: string, take: number, skip: number){
     return this.http.get<Pet[]>(this.API_URL + `/pet/pets-disponiveis/${abrigoId}?skip=${skip}&take=${take}`)
   }
+
+  CadastrarPet(pet: Pet){
+    return this.http.post<Pet>(this.API_URL + '/pet', pet);
+  }
 }

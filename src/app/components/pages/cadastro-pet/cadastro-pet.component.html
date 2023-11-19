@@ -1,1 +1,151 @@
-<p>cadastro-pet works!</p>
+<section class="cadastro-pet">
+    <mensagem-component [texto]="'Cadastre seu pet para que ele encontre seu melhor amigo'"></mensagem-component>
+    <div class="cadastro-pet__voltar">
+        <button type="button">Voltar</button>
+    </div>
+    <article class="cadastro-pet__form">
+        <div class="cadastro-pet__formulario-container">
+            <form #f="ngForm" action (ngSubmit)="CadastrarPet(f, $event)">
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="nome"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Nome
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input type="text" name="nome" id="nome" ngModel
+                            placeholder="Digite o nome completo do Pet"
+                            required minlength="3">
+                    </div>
+                    <div
+                        *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched) || f.controls['nome']?.dirty || (f.controls['nome']?.invalid && f.submitted)">
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['nome']?.errors?.['required']">O
+                            campo nome é obrigatório</span>
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['nome']?.errors?.['minlength']">O
+                            nome deve ter no mínimo três caracteres</span>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="descricao"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Descrição
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input type="text" name="descricao" id="descricao" ngModel
+                            placeholder="Digite uma descrição para o Pet"
+                            required minlength="3">
+                    </div>
+                    <div
+                        *ngIf="(f.controls['descricao']?.invalid && f.controls['descricao']?.touched) || f.controls['descricao']?.dirty || (f.controls['descricao']?.invalid && f.submitted)">
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['nome']?.errors?.['required']">A descrição é obrigatória</span>
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['descricao']?.errors?.['minlength']">O
+                            nome deve ter no mínimo três caracteres</span>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="idade"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Idade
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input type="text" name="idade" id="idade" ngModel
+                            placeholder="Digite a idade do seu pet em extenso"
+                            required minlength="3">
+                    </div>
+                    <div
+                        *ngIf="(f.controls['idade']?.invalid && f.controls['idade']?.touched) || f.controls['idade']?.dirty || (f.controls['idade']?.invalid && f.submitted)">
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['idade']?.errors?.['required']">A idade é obrigatória</span>
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['idade']?.errors?.['minlength']">A idade deve ter mais de 3 caracteres</span>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="imagem"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Imagem
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input type="text" name="imagem" id="imagem" ngModel
+                            placeholder="Coloque a url da imagem do pet"
+                            required>
+                    </div>
+                    <div
+                        *ngIf="(f.controls['imagem']?.invalid && f.controls['imagem']?.touched) || f.controls['imagem']?.dirty || (f.controls['imagem']?.invalid && f.submitted)">
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['imagem']?.errors?.['required']">A imagem do pet é obrigatório</span>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="cep"
+                        class="cadastro-abrigo__formulario-label ff-popins">
+                        CEP
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input (blur)="BuscarCEP(f)" type="text" name="cep"
+                            id="cep" ngModel placeholder="XXXXX-XXX"
+                            pattern="\d{5}-?\d{3}" required maxlength="9">
+                    </div>
+                    <div
+                        *ngIf="(f.controls['cep']?.invalid && f.controls['cep']?.touched) || (f.controls['cep']?.invalid && f.submitted)">
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['cep']?.errors?.['required']">O
+                            campo CEP é obrigatório</span>
+                        <span class="mensagem-erro ff-popins"
+                            *ngIf="f.controls['cep']?.errors?.['pattern']">O CEP
+                            deve seguir o padrão XXXXX-XXX</span>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="logradouro"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Logradouro
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input disabled type="text" name="logradouro"
+                            id="logradouro" ngModel required>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="bairro"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Bairro
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input disabled type="text" name="bairro" id="bairro"
+                            ngModel required>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="cidade"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Cidade
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input disabled type="text" name="cidade" id="cidade"
+                            ngModel required>
+                    </div>
+                </div>
+                <div class="cadastro-pet__formulario-campo">
+                    <label for="estado"
+                        class="cadastro-pet__formulario-label ff-popins">
+                        Estado
+                    </label>
+                    <div class="cadastro-pet__formulario-input">
+                        <input disabled type="text" name="estado" id="estado"
+                            ngModel required>
+                    </div>
+                </div>
+               
+                <div class="cadastro-pet__formulario-botao">
+                    <button class="cadastro-pet__formulario-botao ff-popins"
+                        type="submit"><span>Cadastrar!</span><span *ngIf="loading" class="loader"></span></button>
+                    <button routerLink="/pets" class="cadastro-pet__formulario-botao" type="button">Voltar</button>
+                </div>
+            </form>
+        </div>
+    </article>
+</section>

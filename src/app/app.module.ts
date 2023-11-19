@@ -44,7 +44,6 @@ import { AutenticacaoInterceptor } from './intercerptors/autenticacao.intercepto
     FormsModule,
     ReactiveFormsModule,
     LoaderModule,
-    
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

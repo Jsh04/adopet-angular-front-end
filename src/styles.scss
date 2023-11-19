@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+  --azul-primary:  #3772FF;
+  --verde-primary: #36D6AD;
+  --rosa-primary: #FC7071;
+}
 
 @mixin font-style($size, $height, $style, $weight){
   font-size: $size;
@@ -15,13 +20,40 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
-
-:root{
-  --azul-primary:  #3772FF;
-  --verde-primary: #36D6AD;
-  --rosa-primary: #FC7071;
+@mixin style-button($size, $height, $style, $weight){
+    display: flex ;
+    justify-content: center;
+    margin: 0.5rem 0;
+    button{
+      @include font-style($size, $height, $style, $weight);
+      padding: 0.75rem 1rem;
+      display: flex;
+      column-gap: 1rem;
+      color: white;
+      background-color: var(--rosa-primary);
+      border: none;
+      width: 200px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 }
 
+@mixin style-input-container(){
+  @include style-input();
+  margin-bottom: 0.5rem;
+  input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    &::placeholder{
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #BCBCBC;
+    }
+  }
+}
 .ff-popins{
   font-family: 'Poppins', sans-serif;;
 }
@@ -29,4 +61,28 @@
 .mensagem-erro{
   color: red;
   @include font-style(16px, 18px, normal, 400);
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 5px solid #FFF;
+  border-bottom-color: var(--verde-primary);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+}
+  100% {
+      transform: rotate(360deg);
+  }
+} 
+.icon{
+  font-size: 25px;
+  cursor: pointer;
 }

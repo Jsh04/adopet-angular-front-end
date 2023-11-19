@@ -21,3 +21,20 @@
     margin-top: 3rem;
 }
 
+.pet-tabela__cadastro{
+    display: flex;
+    margin-top: 3rem;
+    justify-content: end;
+    .pet-tabela__cadastro-btn{
+        @include font-style(18px, 20px, normal, 600);
+        padding: 0.75rem 1rem;
+        color: white;
+        background-color: var(--rosa-primary);
+        border: none;
+        width: 200px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+
