@@ -21,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'pets-disponiveis',
-    component: PetsDisponiveisComponent
+    component: PetsDisponiveisComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -30,6 +31,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'abrigo',
@@ -42,6 +44,10 @@ const routes: Routes = [
   },
   {
     path: 'pets',
+    canActivate: [AuthGuard],
+    data: {
+      roles: "Abrigo"
+    },
     children: [
       {
         path: 'cadastro',

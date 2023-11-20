@@ -20,6 +20,7 @@ import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cada
 import { CadastroPetComponent } from './components/pages/cadastro-pet/cadastro-pet.component';
 import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
 import { AutenticacaoInterceptor } from './intercerptors/autenticacao.interceptor';
+import { AuthGuardRole } from './guard/authRole.guard';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,13 @@ import { AutenticacaoInterceptor } from './intercerptors/autenticacao.intercepto
     provide: HTTP_INTERCEPTORS,
     useClass: AutenticacaoInterceptor,
     multi: true
-  }],
+  }, 
+  AuthGuardRole, {
+    provide: HTTP_INTERCEPTORS, 
+    useClass: AutenticacaoInterceptor,
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
