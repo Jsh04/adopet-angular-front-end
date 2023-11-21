@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {  Router } from '@angular/router';
+import {  ActivatedRoute, Router } from '@angular/router';
 import { CepResponse } from 'src/app/interfaces/CepResponse';
 import { Pet } from 'src/app/models/pet';
 import { CepService } from 'src/app/service/cep.service';
@@ -9,11 +9,11 @@ import { PetService } from 'src/app/service/pet/pet.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-cadastro-pet',
-  templateUrl: './cadastro-pet.component.html',
-  styleUrls: ['./cadastro-pet.component.scss']
+  selector: 'app-formulario-pet',
+  templateUrl: './formulario-pet.component.html',
+  styleUrls: ['./formulario-pet.component.scss']
 })
-export class CadastroPetComponent implements OnInit {
+export class FormularioPetComponent implements OnInit {
 
   loading: boolean = false
 
@@ -22,10 +22,28 @@ export class CadastroPetComponent implements OnInit {
     private petService: PetService,
     private cepService: CepService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private activedRoute: ActivatedRoute
     ) { }
 
+    readonly petEditar: Pet = new Pet();
+
   ngOnInit(): void {
+    let idPet: number | undefined;
+    this.activedRoute.params.subscribe(params => idPet = params['id'])
+    if (idPet != undefined) {
+      this.petService.BuscarPetPorId(idPet).subscribe(value => {
+        this.petEditar.nome = value.nome;
+        this.petEditar.descricao = value.descricao;
+        this.petEditar.imagem = value.imagem;
+        this.petEditar.endereco.cep = value.endereco.cep
+        this.petEditar.endereco.bairro = value.endereco.bairro
+        this.petEditar.endereco.logradouro = value.endereco.logradouro
+        this.petEditar.endereco.cidade = value.endereco.cidade
+        this.petEditar.endereco.estado = value.endereco.estado
+        this.petEditar.idade = value.idade;
+      })
+    }
   }
 
   BuscarCEP(form: NgForm){

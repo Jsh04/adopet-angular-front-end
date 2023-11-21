@@ -63,6 +63,10 @@
   @include font-style(16px, 18px, normal, 400);
 }
 
+body{
+  height: 100vh;
+}
+
 .loader {
   width: 30px;
   height: 30px;

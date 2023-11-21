@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroPetComponent } from './cadastro-pet.component';
+import { FormularioPetComponent } from './formulario-pet.component';
 
 describe('CadastroPetComponent', () => {
-  let component: CadastroPetComponent;
-  let fixture: ComponentFixture<CadastroPetComponent>;
+  let component: FormularioPetComponent;
+  let fixture: ComponentFixture<FormularioPetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CadastroPetComponent ]
+      declarations: [ FormularioPetComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CadastroPetComponent);
+    fixture = TestBed.createComponent(FormularioPetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

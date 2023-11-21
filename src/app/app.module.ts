@@ -17,7 +17,7 @@ import { CardPetComponent } from './components/shared/card-pet/card-pet.componen
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
 import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cadastro-abrigo.component';
-import { CadastroPetComponent } from './components/pages/cadastro-pet/cadastro-pet.component';
+import { FormularioPetComponent } from './components/pages/cadastro-pet/formulario-pet.component';
 import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
 import { AutenticacaoInterceptor } from './intercerptors/autenticacao.interceptor';
 import { AuthGuardRole } from './guard/authRole.guard';
@@ -35,7 +35,7 @@ import { AuthGuardRole } from './guard/authRole.guard';
     CardPetComponent,
     DashboardComponent,
     CadastroAbrigoComponent,
-    CadastroPetComponent,
+    FormularioPetComponent,
     TabelaPetsComponent,
   ],
   imports: [

@@ -18,4 +18,12 @@ export class PetService {
   CadastrarPet(pet: Pet){
     return this.http.post<Pet>(this.API_URL + '/pet', pet);
   }
+
+  ExcluirPet(idPet: number){
+    return this.http.delete(this.API_URL + `/pet/${idPet}`);
+  }
+
+  BuscarPetPorId(idPet: number){
+    return this.http.get<Pet>(this.API_URL + `/pet/${idPet}`);
+  }
 }

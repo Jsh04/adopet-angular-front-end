@@ -7,7 +7,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { AuthGuard } from './guard/auth.guard';
 import { PetsDisponiveisComponent } from './components/pages/pets-disponiveis/pets-disponiveis.component';
 import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cadastro-abrigo.component';
-import { CadastroPetComponent } from './components/pages/cadastro-pet/cadastro-pet.component';
+import { FormularioPetComponent } from './components/pages/cadastro-pet/formulario-pet.component';
 import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
 
 const routes: Routes = [
@@ -51,7 +51,11 @@ const routes: Routes = [
     children: [
       {
         path: 'cadastro',
-        component: CadastroPetComponent
+        component: FormularioPetComponent
+      },
+      {
+        path: 'editar/:id',
+        component: FormularioPetComponent
       },
       {
         path: '',
