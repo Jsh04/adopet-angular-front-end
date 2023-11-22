@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, Router } from '@angular/router';
 import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/service/pet/pet.service';
-import { TokenService } from 'src/app/service/token.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 
 import { Tutor } from 'src/app/models/tutor';
-import { TutorService } from 'src/app/service/tutor-service.service';
+import { TutorService } from 'src/app/service/tutor/tutor-service.service';
 
 @Component({
   selector: 'app-cadastro',

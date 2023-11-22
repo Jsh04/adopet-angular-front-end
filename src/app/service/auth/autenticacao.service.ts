@@ -1,7 +1,8 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { UserService } from './user.service';
+import { UserService } from '../user.service';
+import { environment } from 'src/environments/environment';
 
 interface AuthResponse {
   token: string;
@@ -12,7 +13,7 @@ interface AuthResponse {
 })
 export class AutenticacaoService {
 
-  private apiUrl: string = "http://localhost:5286"
+  private apiUrl: string = environment.API_URL;
 
   constructor(private http: HttpClient, private usuarioService: UserService) { }
 

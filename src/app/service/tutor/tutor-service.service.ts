@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tutor } from '../models/tutor';
+import { Tutor } from '../../models/tutor';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TutorService {
 
-  readonly API_URL: string = "http://localhost:5286"
+  readonly API_URL: string = environment.API_URL;
 
   constructor(private http: HttpClient) {}
 
