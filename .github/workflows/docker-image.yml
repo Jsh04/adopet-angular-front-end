@@ -22,8 +22,6 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag adopet-front-angular:latest
-    - name: Docker Tag
-      run: docker tag adopet-front-angular:latest ${{secrets.DOCKER_USER}}/adopet-front-angular:latest
     - name : Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/adopet-front-angular:latest
       
