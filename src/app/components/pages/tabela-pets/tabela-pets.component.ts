@@ -24,7 +24,7 @@ export class TabelaPetsComponent implements OnInit {
 
   ngOnInit(): void {
     const abrigoId = this.userService.RetornarIdUsuario();
-    this.petService.RetornarListaPets(abrigoId, 10, 0).subscribe(value => {
+    this.petService.RetornarListaPetsPorAbrigoId(abrigoId, 10, 0).subscribe(value => {
       this.ListaPetDisponiveis = value
     });
   }
@@ -44,7 +44,7 @@ export class TabelaPetsComponent implements OnInit {
   ExcluirPet(idPet: number){
     this.petService.ExcluirPet(idPet).subscribe();
     const abrigoId = this.userService.RetornarIdUsuario();
-    this.petService.RetornarListaPets(abrigoId, 10, 0).subscribe(value => {
+    this.petService.RetornarListaPetsPorAbrigoId(abrigoId, 10, 0).subscribe(value => {
       this.ListaPetDisponiveis = value
     });
   }

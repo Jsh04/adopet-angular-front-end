@@ -17,10 +17,10 @@ export class DashboardComponent implements OnInit {
   }
 
   eAbrigo(): boolean{
-    if ('Abrigo'== this.ABRIGO) 
+    if (this.userService.retornarRole() == this.ABRIGO) 
       return true
     else 
-      return true
+      return false
   }
 
 }

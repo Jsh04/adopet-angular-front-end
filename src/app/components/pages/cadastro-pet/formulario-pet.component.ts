@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {  ActivatedRoute, Router } from '@angular/router';
 import { CepResponse } from 'src/app/interfaces/CepResponse';
@@ -15,7 +15,12 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class FormularioPetComponent implements OnInit {
 
+
   loading: boolean = false
+  idPet: number | undefined
+
+  @ViewChild("f")
+  f!: NgForm;
 
   constructor(
     private http: HttpClient,
@@ -26,24 +31,32 @@ export class FormularioPetComponent implements OnInit {
     private activedRoute: ActivatedRoute
     ) { }
 
-    readonly petEditar: Pet = new Pet();
-
   ngOnInit(): void {
-    let idPet: number | undefined;
-    this.activedRoute.params.subscribe(params => idPet = params['id'])
-    if (idPet != undefined) {
-      this.petService.BuscarPetPorId(idPet).subscribe(value => {
-        this.petEditar.nome = value.nome;
-        this.petEditar.descricao = value.descricao;
-        this.petEditar.imagem = value.imagem;
-        this.petEditar.endereco.cep = value.endereco.cep
-        this.petEditar.endereco.bairro = value.endereco.bairro
-        this.petEditar.endereco.logradouro = value.endereco.logradouro
-        this.petEditar.endereco.cidade = value.endereco.cidade
-        this.petEditar.endereco.estado = value.endereco.estado
-        this.petEditar.idade = value.idade;
+    this.activedRoute.params.subscribe(params => this.idPet = params['id'])
+    if (this.idPet != undefined) {
+      this.petService.BuscarPetPorId(this.idPet).subscribe(value => {
+        this.f.controls['nome'].setValue(value.nome);
+        this.f.controls['descricao'].setValue(value.descricao); 
+        this.f.controls['imagem'].setValue(value.imagem);
+        this.f.controls['cep'].setValue(value.endereco.cep);
+        this.f.controls['bairro'].setValue(value.endereco.bairro);
+        this.f.controls['logradouro'].setValue(value.endereco.logradouro);
+        this.f.controls['cidade'].setValue(value.endereco.cidade);
+        this.f.controls['estado'].setValue(value.endereco.estado);
+        this.f.controls['idade'].setValue(value.idade);
       })
     }
+  }
+
+  private RetornarTipoFormEditar(): boolean{
+    return this.router.url.includes("editar");
+  }
+
+  RetornarNomeBotao(): string {
+    if(this.RetornarTipoFormEditar())
+      return "Editar"
+    else
+      return "Cadastrar!"
   }
 
   BuscarCEP(form: NgForm){
@@ -62,9 +75,10 @@ export class FormularioPetComponent implements OnInit {
     form.controls['estado'].setValue(dadosCep.uf)
   }
 
-  CadastrarPet(form: NgForm, evento: Event): void{
+  SubmitPet(form: NgForm, evento: Event): void{
     this.loading = true
     evento.preventDefault();
+    console.log(form);
     if (form.invalid) {
       this.loading = false
       alert("Preencha os dados corretamente")
@@ -82,13 +96,22 @@ export class FormularioPetComponent implements OnInit {
     pet.endereco.cidade = form.controls['cidade'].value;
     pet.endereco.estado = form.controls['estado'].value;
     pet.endereco.logradouro = form.controls['logradouro'].value;
-    console.log(pet);
+
     
-    this.petService.CadastrarPet(pet).subscribe(value => {
-      this.loading = false
-      alert("Pet cadastrado com sucesso");
-      this.router.navigateByUrl('/pets');
-    });
+    if (this.RetornarTipoFormEditar()) {
+      this.petService.EditarPet(this.idPet!, pet).subscribe(value => {
+        this.loading = false;
+        alert("Pet editado com sucesso");
+        this.router.navigateByUrl('/pets');
+      });
+    }else{
+      this.petService.CadastrarPet(pet).subscribe(value => {
+        this.loading = false
+        alert("Pet cadastrado com sucesso");
+        this.router.navigateByUrl('/pets');
+      });
+    }
+    
   }
 
 }

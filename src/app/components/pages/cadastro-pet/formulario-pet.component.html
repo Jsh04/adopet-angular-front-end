@@ -2,14 +2,14 @@
     <mensagem-component [texto]="'Cadastre seu pet para que ele encontre seu melhor amigo'"></mensagem-component>
     <article class="cadastro-pet__form">
         <div class="cadastro-pet__formulario-container">
-            <form #f="ngForm" action (ngSubmit)="CadastrarPet(f, $event)">
+            <form #f="ngForm" action (ngSubmit)="SubmitPet(f, $event)">
                 <div class="cadastro-pet__formulario-campo">
                     <label for="nome"
                         class="cadastro-pet__formulario-label ff-popins">
                         Nome
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input type="text" name="nome" id="nome" [value]="petEditar != null ? petEditar.nome : '' " ngModel
+                        <input type="text" name="nome" id="nome"  ngModel
                             placeholder="Digite o nome completo do Pet"
                             required minlength="3">
                     </div>
@@ -29,7 +29,7 @@
                         Descrição
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input type="text" name="descricao" [value]="petEditar != null ? petEditar.descricao : '' " id="descricao" ngModel
+                        <input type="text" name="descricao"  id="descricao" ngModel
                             placeholder="Digite uma descrição para o Pet"
                             required minlength="3">
                     </div>
@@ -48,7 +48,7 @@
                         Idade
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input type="text" name="idade" id="idade" [value]="petEditar != null ? petEditar.idade : '' " ngModel
+                        <input type="text" name="idade" id="idade" ngModel
                             placeholder="Digite a idade do seu pet em extenso"
                             required minlength="3">
                     </div>
@@ -66,7 +66,7 @@
                         Imagem
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input type="text" name="imagem" [value]="petEditar != null ? petEditar.imagem : '' " id="imagem" ngModel
+                        <input type="text" name="imagem"  id="imagem" ngModel
                             placeholder="Coloque a url da imagem do pet"
                             required>
                     </div>
@@ -82,7 +82,7 @@
                         CEP
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input (blur)="BuscarCEP(f)" type="text" [value]="petEditar != null ? petEditar.endereco.cep : '' " name="cep"
+                        <input (blur)="BuscarCEP(f)" type="text" name="cep"
                             id="cep" ngModel placeholder="XXXXX-XXX"
                             pattern="\d{5}-?\d{3}" required maxlength="9">
                     </div>
@@ -102,7 +102,7 @@
                         Logradouro
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input disabled type="text" [value]="petEditar != null ? petEditar.endereco.logradouro : '' "  name="logradouro"
+                        <input disabled type="text"  name="logradouro"
                             id="logradouro" ngModel required>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                         Bairro
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input disabled type="text" [value]="petEditar != null ? petEditar.endereco.bairro : '' " name="bairro" id="bairro"
+                        <input disabled type="text" name="bairro" id="bairro"
                             ngModel required>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                         Cidade
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input disabled type="text" name="cidade" [value]="petEditar != null ? petEditar.endereco.cidade : '' " id="cidade"
+                        <input disabled type="text" name="cidade" id="cidade"
                             ngModel required>
                     </div>
                 </div>
@@ -132,14 +132,14 @@
                         Estado
                     </label>
                     <div class="cadastro-pet__formulario-input">
-                        <input disabled type="text" name="estado" [value]="petEditar != null ? petEditar.endereco.estado : '' " id="estado"
+                        <input disabled type="text" name="estado"  id="estado"
                             ngModel required>
                     </div>
                 </div>
                
                 <div class="cadastro-pet__formulario-botao">
                     <button class="cadastro-pet__formulario-botao ff-popins"
-                        type="submit"><span>Cadastrar!</span><span *ngIf="loading" class="loader"></span></button>
+                        type="submit"><span>{{RetornarNomeBotao()}}</span><span *ngIf="loading" class="loader"></span></button>
                     <button routerLink="/pets" class="cadastro-pet__formulario-botao" type="button">Voltar</button>
                 </div>
             </form>

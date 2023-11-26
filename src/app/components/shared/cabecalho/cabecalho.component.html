@@ -1,11 +1,24 @@
 <header class="cabecalho">
-  <div  class="cabecalho__logo">
-    <img [routerLink]="'/dashboard'" class="cabecalho__img" src="../../../assets/Logos-02.png" alt="Logo do AdoPet" srcset="">
+  <div class="cabecalho__container-menu">
+    <div  class="cabecalho__logo">
+      <img [routerLink]="'/dashboard'" class="cabecalho__img" src="../../../assets/Logos-02.png" alt="Logo do AdoPet" srcset="">
+    </div>
+    <div *ngIf="EstaLogado()" class="cabecalho__icon-home">
+      <img  [routerLink]="'/dashboard'" src="../../../assets/Casa.png" alt="Icon do Home">
+    </div>
+    <div *ngIf="EstaLogado()" class="cabecalho__icon-notifications">
+      <img  src="../../../assets/Mensagens.png" alt="Icon Notificações">
+    </div>
   </div>
-  <div class="cabecalho__icon-home">
-    <img  [routerLink]="'/dashboard'" src="../../../assets/Casa.png" alt="Icon do Home">
-  </div>
-  <div class="cabecalho__icon-notifications">
-    <img  src="../../../assets/Mensagens.png" alt="Icon Notificações">
+  <div *ngIf="EstaLogado()" class="cabecalho__container-perfil">
+    <div class="cabecalho__container-perfil-user">
+      <img (click)="MostrarMenu()" src="../../../../assets/Usuario.png" alt="Foto do usuário" srcset="">
+      <div [ngClass]="mostrarMenuUsuario ? 'cabecalho__container-perfil-user-menu' : 'menu-desativado' " >
+        <ul class="cabecalho__container-perfil-menu-lista">
+          <li class="cabecalho__container-perfil-menu-item ff-popins">Perfil</li>
+          <li (click)="Deslogar()" class="cabecalho__container-perfil-menu-item ff-popins">Logout</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </header>

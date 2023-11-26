@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Abrigo } from 'src/app/models/abrigo';
 import { Endereco } from 'src/app/models/endereco';
 import { Pet } from 'src/app/models/pet';
+import { PetService } from 'src/app/service/pet/pet.service';
 
 @Component({
   selector: 'app-pets-disponiveis',
@@ -10,7 +11,7 @@ import { Pet } from 'src/app/models/pet';
 })
 export class PetsDisponiveisComponent implements OnInit {
 
-  readonly ListaPetsDisponiveis: Pet[] = [
+  ListaPetsDisponiveis: Pet[] = [
     {
       nome: "Dunga",
       idade: '2 anos',
@@ -60,8 +61,12 @@ export class PetsDisponiveisComponent implements OnInit {
       }as Abrigo
     } as Pet   
   ];
-  constructor() {}
+  constructor(private petService: PetService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.petService.RetornarListaPets(0, 10).subscribe(value => {
+      this.ListaPetsDisponiveis = value
+    })
+  }
 
 }
