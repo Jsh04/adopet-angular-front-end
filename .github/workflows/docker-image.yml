@@ -23,7 +23,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag adopet-front-angular:latest
     - name: Docker Tag
-      run: docker tag adopet-front-angular:latest adopet-front-angular:latest
+      run: docker tag adopet-front-angular:latest ${{secrets.DOCKER_USER}}/adopet-front-angular:latest
     - name : Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/adopet-front-angular:latest
       
