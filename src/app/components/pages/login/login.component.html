@@ -19,7 +19,7 @@
                       Senha
                     </label>
                     <div class="login__formulario-input-senha">
-                        <input [type]="eParaMostrarSenha ? 'text' : 'password'" name="Senha" id="senha" ngModel required placeholder="Crie uma senha">
+                        <input [type]="eParaMostrarSenha ? 'text' : 'password'" name="Senha" id="senha" ngModel required placeholder="Digite sua senha criada">
                         <span *ngIf="!eParaMostrarSenha" (click)="MostrarSenha()" class="login__ver-senha"><i class="las la-eye-slash"></i></span>
                         <span *ngIf="eParaMostrarSenha" (click)="MostrarSenha()" class="login__ver-senha"><i class="las la-eye"></i></span>
                     </div>

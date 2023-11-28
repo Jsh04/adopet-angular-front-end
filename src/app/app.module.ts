@@ -21,6 +21,7 @@ import { FormularioPetComponent } from './components/pages/cadastro-pet/formular
 import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
 import { AutenticacaoInterceptor } from './intercerptors/autenticacao.interceptor';
 import { AuthGuardRole } from './guard/authRole.guard';
+import { PerfilComponent } from './components/pages/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuthGuardRole } from './guard/authRole.guard';
     CadastroAbrigoComponent,
     FormularioPetComponent,
     TabelaPetsComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,10 +29,18 @@ export class LoginComponent implements OnInit {
     usuario.Email = form.controls['email'].value;
     usuario.Senha = form.controls['Senha'].value;
     this.autenticacaoService.login(usuario.Email, usuario.Senha).subscribe(
-      value => {
+      (value) => {
         this.loading = false
         alert("Usuario logado com sucesso")
         this.router.navigate(['/dashboard']);
+      },
+      (erro: HttpErrorResponse) => {
+        if (erro.status == 400) {
+          alert("Erro no login, verifique os dados e tente novamente!")
+          this.loading = false;
+          form.controls['email'].reset();
+          form.controls['Senha'].reset();
+        }  
       }
     );
    

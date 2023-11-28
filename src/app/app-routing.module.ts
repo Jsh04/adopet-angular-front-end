@@ -9,6 +9,7 @@ import { PetsDisponiveisComponent } from './components/pages/pets-disponiveis/pe
 import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cadastro-abrigo.component';
 import { FormularioPetComponent } from './components/pages/cadastro-pet/formulario-pet.component';
 import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
+import { PerfilComponent } from './components/pages/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,15 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'tutor',
+    children: [
+      {
+        path: 'perfil/:id',
+        component: PerfilComponent
+      }
+    ]
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
@@ -39,6 +49,10 @@ const routes: Routes = [
       {
         path: 'cadastro',
         component: CadastroAbrigoComponent
+      },
+      {
+        path: 'perfil/:id',
+        component: PerfilComponent
       }
     ],
   },
