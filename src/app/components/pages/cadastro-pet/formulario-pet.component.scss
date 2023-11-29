@@ -30,7 +30,7 @@
 }
 
 .cadastro-pet__formulario-input{
-    @include style-input-container();
+    @include style-input-container(#f6f6f6);
 }
 
 .cadastro-pet__formulario-botao{

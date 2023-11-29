@@ -32,7 +32,7 @@
 }
 
 .cadastro-tutor__formulario-input{
-  @include style-input-container();
+  @include style-input-container(#f6f6f6);
 }
 
 .cadastro-tutor__formulario-campo-senha{
@@ -43,7 +43,7 @@
 }
 
 .cadastro-tutor__formulario-input-senha{
-  @include style-input();
+  @include style-input(#F6F6F6);
   width: 300px;
   margin-bottom: 0.5rem;
   display: flex;

@@ -10,6 +10,7 @@ import { CadastroAbrigoComponent } from './components/pages/cadastro-abrigo/cada
 import { FormularioPetComponent } from './components/pages/cadastro-pet/formulario-pet.component';
 import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
+import { AdocaoComponent } from './components/pages/adocao/adocao.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'perfil/:id',
         component: PerfilComponent
+      },
+      {
+        path: 'adocao',
+        component: AdocaoComponent
       }
     ]
   },

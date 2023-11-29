@@ -30,7 +30,7 @@
 }
 
 .login__formulario-input{
-    @include style-input();
+    @include style-input(#f6f6f6);
     margin-bottom: 0.5rem;
     input{
       background-color: transparent;
@@ -54,7 +54,7 @@
   }
 
   .login__formulario-input-senha{
-    @include style-input();
+    @include style-input(#f6f6f6);
     width: 300px;
     margin-bottom: 0.5rem;
     display: flex;

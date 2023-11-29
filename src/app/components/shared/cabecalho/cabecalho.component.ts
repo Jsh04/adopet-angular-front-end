@@ -22,11 +22,13 @@ export class CabecalhoComponent implements OnInit {
     const listRoutas: string[] = [  'cadastro', 'login', 'cadastro/abrigo' ]
     this.router.events.subscribe(value => {
       if (value instanceof NavigationEnd) {
+        console.log(value.url);
+        
         this.rotaAtual = value.url;
-
         listRoutas.forEach(rota =>{
           if (this.rotaAtual.includes(rota) || this.rotaAtual == '/') {
             this.ativarRota = true;
+            console.log(this.ativarRota);
           }
         })
         

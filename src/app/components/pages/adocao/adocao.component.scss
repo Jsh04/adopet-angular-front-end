@@ -1,0 +1,37 @@
+@import '../../../../styles.scss';
+
+.adocao{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+    padding: 1rem 3rem;
+}
+.adocao__descricao{
+    p{
+        @include font-style(18px, 26px, normal, 400);
+        color: var(--azul-primary)
+    }
+    margin-bottom: 1rem;
+    padding: 0 2rem ;
+}
+.adocao__formulario{
+    padding: 2rem ;
+    background-color: #F6F6F6;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.adocao__formulario-campo{
+    padding: 1rem;
+    text-align: center;
+}
+
+.adocao__formulario-input{
+    background-color: white;
+    @include style-input-container(white);
+}
+
+.adocao__formulario-label{
+    @include font-style(18px, 24px, normal, 600);
+}

@@ -1,0 +1,47 @@
+<section class="adocao">
+    <article class="adocao__descricao">
+        <p class="adocao__descricao-texto ff-popins">Envie uma mensagem para a pessoa ou instituição que está cuidando do animal:</p>
+    </article>
+    <article class="adocao__formulario">
+        <div class="adocao__formulario-container">
+            <form #form="ngForm" (ngSubmit)="FazerAdocao(form)" >
+                <div class="adocao__formulario-campo">
+                    <label for="nome" class="adocao__formulario-label ff-popins">
+                        Telefone
+                    </label>
+                    <div class="adocao__formulario-input">
+                        <input type="text" name="nome" id="nome" ngModel placeholder="Insira seu telefone" required minlength="3">
+                    </div>
+                    <div *ngIf="(form.controls['nome']?.invalid && form.controls['nome']?.touched) || form.controls['nome']?.dirty || (form.controls['nome']?.invalid && form.submitted)">
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
+                    </div>
+                </div>
+                <div class="adocao__formulario-campo">
+                    <label for="nome" class="adocao__formulario-label ff-popins">
+                        Nome do animal
+                    </label>
+                    <div class="adocao__formulario-input">
+                        <input type="text" name="nome" id="nome" ngModel placeholder="Insira o nome do Animal" required minlength="3">
+                    </div>
+                    <div *ngIf="(form.controls['nome']?.invalid && form.controls['nome']?.touched) || form.controls['nome']?.dirty || (form.controls['nome']?.invalid && form.submitted)">
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
+                    </div>
+                </div>
+                <div class="adocao__formulario-campo">
+                    <label for="nome" class="adocao__formulario-label ff-popins">
+                        Descrição
+                    </label>
+                    <div class="adocao__formulario-input">
+                        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+                    </div>
+                    <div *ngIf="(form.controls['nome']?.invalid && form.controls['nome']?.touched) || form.controls['nome']?.dirty || (form.controls['nome']?.invalid && form.submitted)">
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </article>
+</section>

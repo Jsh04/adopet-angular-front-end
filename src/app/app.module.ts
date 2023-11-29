@@ -22,6 +22,7 @@ import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.
 import { AutenticacaoInterceptor } from './intercerptors/autenticacao.interceptor';
 import { AuthGuardRole } from './guard/authRole.guard';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
+import { AdocaoComponent } from './components/pages/adocao/adocao.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PerfilComponent } from './components/pages/perfil/perfil.component';
     FormularioPetComponent,
     TabelaPetsComponent,
     PerfilComponent,
+    AdocaoComponent,
   ],
   imports: [
     BrowserModule,
