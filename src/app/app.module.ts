@@ -9,7 +9,6 @@ import { RodapeComponent } from './components/shared/rodape/rodape.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { CadastroComponent } from './components/pages/cadastro/cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoaderModule } from './components/shared/loader/loader.module';
 import { LoginComponent } from './components/pages/login/login.component';
 import { MensagemComponent } from './components/shared/mensagem/mensagem.component';
 import { PetsDisponiveisComponent } from './components/pages/pets-disponiveis/pets-disponiveis.component';
@@ -48,7 +47,6 @@ import { AdocaoComponent } from './components/pages/adocao/adocao.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    LoaderModule,
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

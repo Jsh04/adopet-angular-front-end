@@ -8,6 +8,6 @@
         <p class="ff-popins">{{pet.descricao}}</p>
 
         <p class="ff-popins card-pet__estado">{{pet.abrigo.endereco.estado}}</p>
-        <p routerLink="/tutor/adocao" class="ff-popins card-pet__falar-responsavel"><img src="../../../../assets/ícone mensagem.png" alt="">Falar com responsável</p>
+        <p (click)="RedirecionarParaAdocao(pet.id)" class="ff-popins card-pet__falar-responsavel"><img src="../../../../assets/ícone mensagem.png" alt="">Falar com responsável</p>
     </div>
 </article>

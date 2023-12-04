@@ -10,11 +10,11 @@
                         Telefone
                     </label>
                     <div class="adocao__formulario-input">
-                        <input type="text" name="nome" id="nome" ngModel placeholder="Insira seu telefone" required minlength="3">
+                        <input type="text" name="telefone" id="telefone" ngModel placeholder="Insira seu telefone" required minlength="9">
                     </div>
-                    <div *ngIf="(form.controls['nome']?.invalid && form.controls['nome']?.touched) || form.controls['nome']?.dirty || (form.controls['nome']?.invalid && form.submitted)">
-                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
-                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
+                    <div *ngIf="(form.controls['telefone']?.invalid && form.controls['telefone']?.touched) || form.controls['telefone']?.dirty || (form.controls['telefone']?.invalid && form.submitted)">
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['telefone']?.errors?.['required']">O campo de telefone é obrigatório</span>
+                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['telefone']?.errors?.['minlength']">O nome deve ter no mínimo nove caracteres</span>
                     </div>
                 </div>
                 <div class="adocao__formulario-campo">
@@ -31,15 +31,14 @@
                 </div>
                 <div class="adocao__formulario-campo">
                     <label for="nome" class="adocao__formulario-label ff-popins">
-                        Descrição
+                        Mensagem
                     </label>
-                    <div class="adocao__formulario-input">
-                        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+                    <div class="adocao__formulario-area">
+                        <textarea name="mensagem" id="mensagem" cols="30" ngModel rows="10" placeholder="Escreva uma mensagem"></textarea>
                     </div>
-                    <div *ngIf="(form.controls['nome']?.invalid && form.controls['nome']?.touched) || form.controls['nome']?.dirty || (form.controls['nome']?.invalid && form.submitted)">
-                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
-                        <span class="mensagem-erro ff-popins" *ngIf="form.controls['nome']?.errors?.['minlength']">O nome deve ter no mínimo três caracteres</span>
-                    </div>
+                </div>
+                <div class="adocao__botao-enviar">
+                    <button type="submit" class="ff-popins"><span>Enviar</span><span *ngIf="loading" class="loader"></span></button>
                 </div>
             </form>
         </div>
