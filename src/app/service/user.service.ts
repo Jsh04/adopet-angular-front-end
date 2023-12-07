@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { TokenService } from './token.service';
 import { BehaviorSubject } from 'rxjs';
 import { Usuario } from '../models/usuario';

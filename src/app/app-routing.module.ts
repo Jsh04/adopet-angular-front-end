@@ -11,6 +11,7 @@ import { FormularioPetComponent } from './components/pages/cadastro-pet/formular
 import { TabelaPetsComponent } from './components/pages/tabela-pets/tabela-pets.component';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { AdocaoComponent } from './components/pages/adocao/adocao.component';
+import { TelaSucessoComponent } from './components/pages/tela-sucesso/tela-sucesso.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
         component: AdocaoComponent
       }
     ]
+  },
+  {
+    path: "sucesso",
+    component: TelaSucessoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

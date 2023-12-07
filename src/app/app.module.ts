@@ -22,6 +22,7 @@ import { AutenticacaoInterceptor } from './intercerptors/autenticacao.intercepto
 import { AuthGuardRole } from './guard/authRole.guard';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { AdocaoComponent } from './components/pages/adocao/adocao.component';
+import { TelaSucessoComponent } from './components/pages/tela-sucesso/tela-sucesso.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AdocaoComponent } from './components/pages/adocao/adocao.component';
     TabelaPetsComponent,
     PerfilComponent,
     AdocaoComponent,
+    TelaSucessoComponent,
   ],
   imports: [
     BrowserModule,

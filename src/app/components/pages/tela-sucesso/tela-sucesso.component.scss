@@ -1,0 +1,27 @@
+@import '../../../../styles.scss';
+
+.icon-sucess{
+    font-size: 100px;
+    color: green;
+}
+
+.tela-sucesso__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+.tela-sucesso__container-texto-conteudo{
+    @include font-style(25px, 24px, normal, 600);
+    color: var(--azul-primary);
+}
+
+.tela-sucesso{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+.tela-sucesso__container-btn{
+    @include style-button(16px, 24px, normal, 600);
+}
