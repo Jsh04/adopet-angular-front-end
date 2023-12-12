@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
+  loading: boolean = false
   constructor() { }
 
   ngOnInit(): void {

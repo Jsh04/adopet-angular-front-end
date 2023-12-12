@@ -1,0 +1,96 @@
+@import '../../../../styles.scss';
+
+.perfil{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+.perfil__descricao-conteudo{
+    @include font-style(18px, 26px, normal, 400);
+    color: var(--azul-primary);
+}
+
+.perfil__dados{
+    background-color: #F6F6F6;
+    padding: 1.5rem 3rem;
+    width: 600px;
+    border-radius: 5px;
+}
+
+.perfil__dados-titulo{
+    color: black;
+    @include font-style(21px, 24px, normal, 600);
+    text-align: center;
+}
+
+.perfil__dados-foto{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfil__dados-foto-label{
+    color: var(--azul-primary);
+    @include font-style(18px, 24px, normal, 600);
+    align-self: flex-start;
+}
+
+.perfil__dados-foto-input{
+    display: none;
+}
+.foto{
+    width: 80px;
+    height: 80px;
+    background-image: url('../../../../assets/Ellipse\ 2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-top: 1.5rem;
+
+}
+
+.perfil__dados-foto-label-edit{
+    color: #FC7071;
+    @include font-style(12px, 24px, normal, 400);
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.perfil__formulario-campo{
+    padding: 1rem;
+}
+
+.perfil__formulario-input{
+    @include style-input-container(white);
+}
+
+.perfil__formulario-label{
+    @include font-style(18px, 24px, normal, 600);
+    color: var(--azul-primary);
+}
+
+.perfil__formulario-area{
+    
+    textarea{
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+        outline: none;
+        border: none;
+        width: 100%;
+        resize: vertical;
+        padding: 1rem;
+        &::placeholder{
+            color: #BCBCBC;
+            @include font-style(16px, 24px, normal, 400);
+            font-family: 'Poppins';
+        }
+        
+    }
+    margin-bottom: 2rem;
+    
+}
+
+.perfil__botao-enviar{
+    @include style-button(16px, 24px, normal, 600);
+}

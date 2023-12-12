@@ -1,1 +1,62 @@
-<p>perfil works!</p>
+<section class="perfil">
+    <article class="perfil__descricao">
+        <div>
+            <p class="perfil__descricao-conteudo">Esse é o perfil que aparece para responsáveis ou ONGs que recebem sua mensagem.</p>
+        </div>
+    </article>
+    <article class="perfil__dados">
+        <div class="perfil__dados-container">
+            <form #f="ngForm" action="">
+                <h3 class="perfil__dados-titulo">Perfil</h3>
+                <div class="perfil__dados-foto">
+                    <label class="perfil__dados-foto-label" for="">Foto</label>
+                    <div class="foto"></div>
+                    <input type="file" id="file" name="imagem" ngModel class="perfil__dados-foto-input">
+                    <label for="file" class="perfil__dados-foto-label-edit">Clique na foto para editar</label>
+                </div>
+    
+                <div class="perfil__formulario-campo">
+                    <label for="email" class="perfil__formulario-label ff-popins">
+                      Nome
+                    </label>
+                    <div class="perfil__formulario-input">
+                        <input type="text" name="nome" id="nome" ngModel placeholder="Digite seu nome" required>
+                    </div>
+                    <div *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched) || f.controls['nome']?.dirty || (f.controls['nome']?.invalid && f.submitted) ">
+                        <span class="mensagem-erro ff-popins" *ngIf="f.controls['nome']?.errors?.['required']">O campo nome é obrigatório</span>
+                    </div>
+                </div>
+                <div class="perfil__formulario-campo">
+                    <label for="email" class="perfil__formulario-label ff-popins">
+                        Telefone
+                    </label>
+                    <div class="perfil__formulario-input">
+                        <input type="text" name="nome" id="nome" ngModel placeholder="Digite seu nome" required>
+                    </div>
+                </div>
+                <div class="perfil__formulario-campo">
+                    <label for="cidade" class="perfil__formulario-label ff-popins">
+                        Cidade
+                    </label>
+                    <div class="perfil__formulario-input">
+                        <input type="text" name="cidade" id="cidade" ngModel placeholder="Digite seu nome" required>
+                    </div>
+                    
+                </div>
+                <div class="perfil__formulario-campo">
+                    <label for="email" class="perfil__formulario-label ff-popins">
+                      Sobre
+                    </label>
+                    <div class="perfil__formulario-area">
+                        <textarea name="mensagem" id="mensagem" cols="30" ngModel rows="5" placeholder="Escreva sobre você"></textarea>
+                    </div>
+                </div>
+                <div class="perfil__botao-enviar">
+                    <button type="submit" class="ff-popins"><span>Editar</span><span *ngIf="loading" class="loader"></span></button>
+                    <button style="margin-left: 0.5rem;" type="submit" class="ff-popins"><span>Deletar Conta</span><span *ngIf="loading" class="loader"></span></button>
+                </div>
+            </form>
+            
+        </div>
+    </article>
+</section>

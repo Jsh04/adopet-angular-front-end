@@ -28,7 +28,6 @@
 
 .adocao__formulario-campo{
     padding: 1rem;
-
 }
 
 .adocao__formulario-input{
@@ -74,5 +73,4 @@
 }
 .adocao__botao-enviar{
     @include style-button(16px, 24px, normal, 600);
-    
 }
