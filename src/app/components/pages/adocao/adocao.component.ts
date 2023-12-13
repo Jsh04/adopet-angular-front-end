@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Adocao } from 'src/app/models/adocao';
 import { AdocaoService } from 'src/app/service/adocao.service';
 import { UserService } from 'src/app/service/user.service';
@@ -16,7 +16,8 @@ export class AdocaoComponent implements OnInit {
   constructor(
     private adocaoService: AdocaoService,
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class AdocaoComponent implements OnInit {
     this.adocaoService.FazerAdocao(adocao).subscribe(value => {
 
       alert("Solicitação feita com sucesso");
-      
+      this.router.navigateByUrl("sucesso");
 
     })
   }
