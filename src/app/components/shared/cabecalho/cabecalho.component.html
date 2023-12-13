@@ -15,7 +15,7 @@
       <img (click)="MostrarMenu()" src="../../../../assets/Usuario.png" alt="Foto do usuário" srcset="">
       <div [ngClass]="mostrarMenuUsuario ? 'cabecalho__container-perfil-user-menu' : 'menu-desativado' " >
         <ul class="cabecalho__container-perfil-menu-lista">
-          <li (click)="RequisicaoParaPerfil()" style="display: flex;" class="cabecalho__container-perfil-menu-item ff-popins">Perfil</li>
+          <li (click)="RequisicaoParaPerfil()" style="display: none;" class="cabecalho__container-perfil-menu-item ff-popins">Perfil</li>
           <li (click)="Deslogar()" class="cabecalho__container-perfil-menu-item ff-popins">Logout</li>
         </ul>
       </div>
