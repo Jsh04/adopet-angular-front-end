@@ -14,13 +14,13 @@ export class TabelaPetsComponent implements OnInit {
   ListaPetDisponiveis: Pet[] = []
 
   constructor(
-    private petService: PetService, 
+    private petService: PetService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private userService: UserService
     ) { }
 
-  
+
 
   ngOnInit(): void {
     const abrigoId = this.userService.RetornarIdUsuario();
@@ -31,6 +31,8 @@ export class TabelaPetsComponent implements OnInit {
 
 
   RedirecionarParaCadastro() {
+    console.log("Ola Vercel");
+
     this.router.navigate(['/pets/cadastro'])
   }
   RetornarStringAdotado(adotado: boolean): string {
