@@ -31,7 +31,7 @@ export class TabelaPetsComponent implements OnInit {
 
 
   RedirecionarParaCadastro() {
-    console.log("Ola Vercel");
+    console.log("Ola Vercel denovo");
 
     this.router.navigate(['/pets/cadastro'])
   }
