@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: "http://localhost:5286" as string
+  API_URL: "https://apiadopet.azurewebsites.net" as string
 };
 
 /*
